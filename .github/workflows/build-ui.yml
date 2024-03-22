@@ -15,6 +15,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4.1.1
+        with:
+          ref: ${{ github.head_ref }}
 
       - id: check_label
         name: Check PL labels
@@ -40,17 +42,8 @@ jobs:
       - name: Commit and push changes
         if: steps.check_label.outputs.label_check == 'success'
         uses: stefanzweifel/git-auto-commit-action@v5
-
-      #   - name: Commit static files if dependencies label
-      #     if: steps.check_label.outputs.label_check == 'success'
-      #     run: |
-      #       if [[ $(git status --porcelain) ]]; then
-      #         git config user.name 'github-actions[bot]'
-      #         git config user.email 'github-actions[bot]@users.noreply.github.com'
-      #         git add .
-      #         git commit --amend --no-edit
-      #         git push --force
-      #       fi
+        with:
+          commit_message: "Add build files"
 
       - name: Check static files uncommitted
         run: |
