@@ -2,9 +2,9 @@ name: Lint UI
 
 on:
   pull_request:
-    branches: [main]
+    branches: ["build-ui"]
   push:
-    branches: [main]
+    branches: ["build-ui"]
 
 jobs:
   lint:
