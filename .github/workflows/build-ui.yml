@@ -2,7 +2,7 @@ name: Build UI
 
 on:
   pull_request:
-    branches: ["build-ui"]
+    branches: ["build-ui-2"]
 
 permissions:
   contents: write
