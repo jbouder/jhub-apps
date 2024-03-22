@@ -3,6 +3,8 @@ name: Build UI
 on:
   pull_request:
     branches: ["build-ui"]
+  push:
+    branches: ["build-ui"]
 
 permissions:
   contents: write
