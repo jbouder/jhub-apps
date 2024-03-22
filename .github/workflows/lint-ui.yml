@@ -1,10 +1,10 @@
 name: Lint UI
 
 on:
-  pull_request:
-    branches: [main]
-  push:
-    branches: [main]
+  workflow_run:
+    workflows: ["Build UI"]
+    types:
+      - completed
 
 jobs:
   lint:
@@ -25,16 +25,4 @@ jobs:
 
       - name: Run Linting
         run: npm run lint
-        working-directory: ui
-
-      - name: Check static files uncommitted
-        run: |
-          npm run buildCopy
-          if [[ $(git status --porcelain) ]]; then
-            echo "There are uncommitted changes."
-            git diff
-            exit 1
-          else
-            echo "No uncommitted changes found."
-          fi
         working-directory: ui
