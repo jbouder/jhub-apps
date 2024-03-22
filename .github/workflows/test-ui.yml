@@ -2,7 +2,7 @@ name: Test UI
 
 on:
   workflow_run:
-    workflows: ["Build UI"]
+    workflows: [Build UI]
     types:
       - completed
 
