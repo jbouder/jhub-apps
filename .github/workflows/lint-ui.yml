@@ -2,7 +2,7 @@ name: Lint UI
 
 on:
   workflow_run:
-    workflows: ["Build UI"]
+    workflows: [Build UI]
     types:
       - completed
 
