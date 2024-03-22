@@ -21,7 +21,7 @@ export const Home = (): React.ReactElement => {
         <Grid item xs={12} md={2}>
           <Item>
             <h1>Home</h1>
-            <p>Manage your apps and services!!</p>
+            <p>Manage your apps and services!!!</p>
           </Item>
         </Grid>
         <Grid item xs={8} md={8}>
