@@ -2,7 +2,7 @@ import { Box, Grid } from '@mui/material';
 import React from 'react';
 import { Item } from '../../styles/styled-item';
 import { AppsSection } from './apps-section/apps-section';
-import { ServicesGrid } from './services-grid/services-grid';
+import { ServicesSection } from './services-section/services-section';
 
 export const Home = (): React.ReactElement => {
   return (
@@ -14,7 +14,7 @@ export const Home = (): React.ReactElement => {
           </Item>
         </Grid>
       </Grid>
-      <ServicesGrid />
+      <ServicesSection />
       <AppsSection />
     </Box>
   );

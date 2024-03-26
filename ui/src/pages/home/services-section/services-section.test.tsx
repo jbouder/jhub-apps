@@ -7,9 +7,9 @@ import { fireEvent, render } from '@testing-library/react';
 import MockAdapter from 'axios-mock-adapter';
 import { RecoilRoot } from 'recoil';
 import { currentUser as defaultUser } from '../../../store';
-import { ServicesGrid } from './services-grid';
+import { ServicesSection } from './services-section';
 
-describe('ServicesGrid', () => {
+describe('ServicesSection', () => {
   const queryClient = new QueryClient();
   const mock = new MockAdapter(axios);
   beforeAll(() => {
@@ -25,7 +25,7 @@ describe('ServicesGrid', () => {
     const { baseElement } = render(
       <RecoilRoot>
         <QueryClientProvider client={queryClient}>
-          <ServicesGrid />
+          <ServicesSection />
         </QueryClientProvider>
       </RecoilRoot>,
     );
@@ -40,7 +40,7 @@ describe('ServicesGrid', () => {
     const { baseElement } = render(
       <RecoilRoot>
         <QueryClientProvider client={queryClient}>
-          <ServicesGrid />
+          <ServicesSection />
         </QueryClientProvider>
       </RecoilRoot>,
     );
@@ -52,7 +52,7 @@ describe('ServicesGrid', () => {
     const { baseElement } = render(
       <RecoilRoot initializeState={({ set }) => set(defaultUser, currentUser)}>
         <QueryClientProvider client={queryClient}>
-          <ServicesGrid />
+          <ServicesSection />
         </QueryClientProvider>
       </RecoilRoot>,
     );
@@ -65,7 +65,7 @@ describe('ServicesGrid', () => {
     const { baseElement } = render(
       <RecoilRoot initializeState={({ set }) => set(defaultUser, currentUser)}>
         <QueryClientProvider client={queryClient}>
-          <ServicesGrid />
+          <ServicesSection />
         </QueryClientProvider>
       </RecoilRoot>,
     );
@@ -84,7 +84,7 @@ describe('ServicesGrid', () => {
     const { baseElement } = render(
       <RecoilRoot initializeState={({ set }) => set(defaultUser, currentUser)}>
         <QueryClientProvider client={queryClient}>
-          <ServicesGrid />
+          <ServicesSection />
         </QueryClientProvider>
       </RecoilRoot>,
     );
@@ -112,7 +112,7 @@ describe('ServicesGrid', () => {
     const { baseElement } = render(
       <RecoilRoot initializeState={({ set }) => set(defaultUser, currentUser)}>
         <QueryClientProvider client={queryClient}>
-          <ServicesGrid />
+          <ServicesSection />
         </QueryClientProvider>
       </RecoilRoot>,
     );
