@@ -222,16 +222,13 @@ export const TopNavigation = ({ ...props }): React.ReactElement => {
               >
                 Tokens
               </MenuItem>
-              {currentUser?.admin ? (
+              {currentUser?.admin && (
                 <MenuItem
                   onClick={() => navigateToUrl(`${APP_BASE_URL}/admin`)}
                 >
                   Admin
                 </MenuItem>
-              ) : (
-                <></>
               )}
-
               <MenuItem onClick={() => navigateToUrl(`${APP_BASE_URL}/logout`)}>
                 Logout
               </MenuItem>
