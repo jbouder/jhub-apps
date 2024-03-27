@@ -15,7 +15,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4.1.1
         with:
-          token: ${{ secrets.GITHUB_ACTIONS }}
+          token: ${{ secrets.PAT_TOKEN }}
           ref: ${{ github.head_ref }}
           fetch-depth: 2
 
