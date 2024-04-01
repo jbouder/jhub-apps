@@ -24,7 +24,7 @@ import { useEffect, useState } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
-import { Thumbnail } from '..';
+import { AppSharing, Thumbnail } from '..';
 import {
   currentNotification,
   currentFile as defaultFile,
@@ -458,6 +458,7 @@ export const AppForm = ({ id }: AppFormProps): React.ReactElement => {
       <hr />
       <div className="form-section">
         <h2>Sharing</h2>
+        <AppSharing id={id} />
         <Controller
           name="is_public"
           control={control}

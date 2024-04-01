@@ -1,4 +1,5 @@
 export { default as AppForm } from './app-form/app-form';
+export { default as AppSharing } from './app-sharing/app-sharing';
 export { default as ButtonGroup } from './button-group/button-group';
 export { default as ContextMenu } from './context-menu/context-menu';
 export { default as Navigation } from './navigation/navigation';
