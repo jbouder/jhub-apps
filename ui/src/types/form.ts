@@ -16,3 +16,8 @@ export interface AppFormInput {
   profile?: string;
   thumbnail?: string;
 }
+
+export interface AppSharingItem {
+  name: string;
+  type: 'user' | 'group';
+}

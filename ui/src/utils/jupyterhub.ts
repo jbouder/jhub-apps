@@ -107,6 +107,10 @@ export const getAppLogoUrl = () => {
   }
 };
 
+export const getFullAppUrl = (url: string) => {
+  return `${document.location.origin}${url}`;
+};
+
 export const navigateToUrl = (url: string) => {
   document.location.href = url;
 };

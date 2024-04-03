@@ -1,11 +1,9 @@
 import {
   Button,
   FormControl,
-  FormControlLabel,
   InputLabel,
   MenuItem,
   Select,
-  Switch,
   TextField,
 } from '@mui/material';
 import {
@@ -56,6 +54,12 @@ export const AppForm = ({ id }: AppFormProps): React.ReactElement => {
     defaultImage,
   );
   const [isPublic, setIsPublic] = useState(false);
+  const [currentUserPermissions, setCurrentUserPermissions] = useState<
+    string[]
+  >([]);
+  const [currentGroupPermissions, setCurrentGroupPermissions] = useState<
+    string[]
+  >([]);
   // Get the app data if we're editing an existing app
   const { data: formData, error: formError } = useQuery<
     AppQueryGetProps,
@@ -167,6 +171,10 @@ export const AppForm = ({ id }: AppFormProps): React.ReactElement => {
           custom_command: custom_command || '',
           profile: profile || '',
           public: isPublic,
+          share_with: {
+            users: currentUserPermissions,
+            groups: currentGroupPermissions,
+          },
         },
       };
 
@@ -265,6 +273,8 @@ export const AppForm = ({ id }: AppFormProps): React.ReactElement => {
       });
       setIsPublic(formData.user_options.public);
       setCurrentImage(formData.user_options.thumbnail);
+      setCurrentUserPermissions(formData.user_options.share_with.users);
+      setCurrentGroupPermissions(formData.user_options.share_with.groups);
     }
   }, [formData?.name, formData?.user_options, reset, setCurrentImage]);
 
@@ -458,28 +468,13 @@ export const AppForm = ({ id }: AppFormProps): React.ReactElement => {
       <hr />
       <div className="form-section">
         <h2>Sharing</h2>
-        <AppSharing id={id} />
-        <Controller
-          name="is_public"
-          control={control}
-          // eslint-disable-next-line @typescript-eslint/no-unused-vars
-          render={({ field: { ref: _, value, onChange, ...field } }) => (
-            <FormControl>
-              <FormControlLabel
-                control={
-                  <Switch
-                    {...field}
-                    id="is_public"
-                    checked={isPublic}
-                    onChange={() => {
-                      setIsPublic(!isPublic);
-                    }}
-                  />
-                }
-                label="Allow Public Access"
-              />
-            </FormControl>
-          )}
+        <AppSharing
+          url={formData?.url}
+          permissions={formData?.user_options?.share_with}
+          isPublic={isPublic}
+          setCurrentUserPermissions={setCurrentUserPermissions}
+          setCurrentGroupPermissions={setCurrentGroupPermissions}
+          setIsPublic={setIsPublic}
         />
       </div>
       <hr />
