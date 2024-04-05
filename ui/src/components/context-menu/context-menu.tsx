@@ -2,6 +2,7 @@ import MoreHorizRoundedIcon from '@mui/icons-material/MoreHorizRounded';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import { useTheme } from '@mui/material/styles';
 import * as React from 'react';
 import './context-menu.css';
 export interface ContextMenuItem {
@@ -9,6 +10,7 @@ export interface ContextMenuItem {
   title: string;
   disabled?: boolean;
   visible?: boolean;
+  danger?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onClick?: (event: React.MouseEvent<any, MouseEvent>) => void;
 }
@@ -23,6 +25,7 @@ export const ContextMenu = ({
   id,
   items,
 }: ContextMenuProps): React.ReactElement => {
+  const theme = useTheme();
   const menuRef = React.useRef<HTMLDivElement>(null);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -81,7 +84,10 @@ export const ContextMenu = ({
           .map((item) => (
             <MenuItem
               key={`menu-item-${item.id}`}
-              sx={{ fontSize: '12px' }}
+              sx={{
+                fontSize: '12px',
+                color: item.danger ? theme.palette.error.main : 'inherit',
+              }}
               onClick={(e) => {
                 if (!item.disabled && item.onClick) {
                   item.onClick(e);

@@ -264,6 +264,7 @@ export const AppCard = ({
       title: 'Delete',
       onClick: () => setIsDeleteOpen(true),
       visible: true,
+      danger: true,
       disabled: isShared || id === '' || !isAppCard,
     },
   ];
