@@ -1,4 +1,4 @@
-import { Box, Grid } from '@mui/material';
+import { Box, Grid, Switch } from '@mui/material';
 import React from 'react';
 import { Item } from '../../styles/styled-item';
 import { AppsSection } from './apps-section/apps-section';
@@ -16,6 +16,7 @@ export const Home = (): React.ReactElement => {
       </Grid>
       <ServicesSection />
       <AppsSection />
+      <Switch />
     </Box>
   );
 };
