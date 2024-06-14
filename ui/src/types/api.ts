@@ -44,6 +44,7 @@ export interface AppQueryGetProps {
   pending: null;
   ready: boolean;
   stopped: boolean;
+  started: boolean;
   url: string;
   user_options: UserOptions;
   progress_url: string;
