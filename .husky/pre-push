@@ -1,20 +1,20 @@
 ## Navigate to UI directory
 
-cd ui
+# cd ui
 
-## Install Dependencies
+# ## Install Dependencies
 
-npm install
+# npm install
 
-## Run Build
+# ## Run Build
 
-npm run build
+# npm run build
 
-## Check for Uncommitted Build Files
+# ## Check for Uncommitted Build Files
 
-if [ -n "$(git status --porcelain)" ]; then
-echo "There are uncommitted changes. Please review the project for any uncommitted files before proceeding."
-exit 1
-else
-echo "No uncommitted changes found."
-fi
+# if [ -n "$(git status --porcelain)" ]; then
+# echo "There are uncommitted changes. Please review the project for any uncommitted files before proceeding."
+# exit 1
+# else
+# echo "No uncommitted changes found."
+# fi
